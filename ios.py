@@ -11,41 +11,49 @@ class NHSMonitorApp:
     def __init__(self):
         self.refresh_timer = None
 
-        # Create main view
-        self.main_view = ui.View()
+        # Create main view with fixed larger size
+        self.main_view = ui.View(frame=(0, 0, 800, 600))
         self.main_view.name = "🩺 NHS A&E & UTC Waiting Times"
         self.main_view.background_color = '#f7f9fc'
 
-        # Create labels
+        # Create title label
         self.title_label = ui.Label()
         self.title_label.text = "NHS North Cumbria Waiting Times"
-        self.title_label.font = ('Segoe UI', 18, 'bold')
+        self.title_label.font = ('Helvetica-Bold', 18)
         self.title_label.text_color = '#222'
-        self.title_label.frame = (20, 20, self.main_view.width - 40, 40)
         self.main_view.add_subview(self.title_label)
 
+        # Create countdown label
         self.countdown_label = ui.Label()
-        self.countdown_label.font = ('Segoe UI', 11)
+        self.countdown_label.font = ('Helvetica', 11)
         self.countdown_label.text_color = '#666'
-        self.countdown_label.frame = (20, 70, self.main_view.width - 40, 30)
         self.main_view.add_subview(self.countdown_label)
 
         # Create text views for A&E and UTC
         self.left_text = ui.TextView()
-        self.left_text.font = ('Segoe UI', 12)
+        self.left_text.font = ('Helvetica', 12)
         self.left_text.background_color = 'white'
         self.left_text.text_color = '#222222'
         self.left_text.editable = False
-        self.left_text.frame = (20, 110, self.main_view.width / 2 - 30, self.main_view.height - 150)
         self.main_view.add_subview(self.left_text)
 
         self.right_text = ui.TextView()
-        self.right_text.font = ('Segoe UI', 12)
+        self.right_text.font = ('Helvetica', 12)
         self.right_text.background_color = 'white'
         self.right_text.text_color = '#222222'
         self.right_text.editable = False
-        self.right_text.frame = (self.main_view.width / 2 + 10, 110, self.main_view.width / 2 - 30, self.main_view.height - 150)
         self.main_view.add_subview(self.right_text)
+
+        # Responsive layout
+        def layout(sender):
+            w, h = sender.width, sender.height
+            self.title_label.frame = (20, 20, w - 40, 40)
+            self.countdown_label.frame = (20, 70, w - 40, 30)
+            self.left_text.frame = (20, 110, w / 2 - 30, h - 150)
+            self.right_text.frame = (w / 2 + 10, 110, w / 2 - 30, h - 150)
+
+        self.main_view.layout = layout
+        layout(self.main_view)  # Force layout immediately so UI fills the window
 
         # Start the app
         self.refresh_data()
@@ -150,7 +158,6 @@ class NHSMonitorApp:
         self.refresh_timer = threading.Timer(REFRESH_INTERVAL, self.countdown_and_refresh)
         self.refresh_timer.start()
 
-# Start the app
+# Start the app with larger window
 app = NHSMonitorApp()
 app.main_view.present('sheet')
-
