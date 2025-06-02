@@ -1,4 +1,4 @@
-🩺 NCIC Live A&E Monitor
+# 🩺 NCIC Live A&E Monitor
 
 This is a Python application that allows you to view live data of the amount of patients in A&E and the latest waiting times, at North Cumbria Integrated Care (NCIC) facilities. The data is scraped from the ncic.nhs.uk waiting times page and displayed in a user-friendly GUI.
 
