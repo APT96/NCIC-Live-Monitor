@@ -5,48 +5,46 @@ This is a Python application that allows you to view live data of the amount of 
 
 ## Features
 
-    Real-time Data: Displays the latest A&E and UTC waiting times for NCIC hospitals
+- Real-time Data: Displays the latest A&E and UTC waiting times for NCIC hospitals
 
-    Auto-refresh: The app automatically refreshes data every 5 minutes with a countdown timer.
+- Auto-refresh: The app automatically refreshes data every 5 minutes with a countdown timer.
 
-    Customizable UI: The interface is split into two sections for A&E and UTC departments, with hospital names highlighted for clarity.
+- Customizable UI: The interface is split into two sections for A&E and UTC departments, with hospital names highlighted for clarity.
 
-    Data Fetching: Uses BeautifulSoup to scrape HTML tables from the NHS website, parsing the relevant data on patients, wait times, and arrivals.
+- Data Fetching: Uses BeautifulSoup to scrape HTML tables from the NHS website, parsing the relevant data on patients, wait times, and arrivals.
 
 ## Requirements
 
 To run this application, you need to have the following Python libraries installed:
 
-    requests
-
-    beautifulsoup4
-
-    tkinter (usually comes pre-installed with Python)
+- requests
+- beautifulsoup4
+- tkinter (usually comes pre-installed with Python)
 
 You can install the required libraries using pip:
 
-pip install requests beautifulsoup4
+`pip install requests beautifulsoup4`
 
-Python Version
+## Python Version
 
 This script is compatible with Python 3.x.
 
 ## How to Run
 
 ### Linux
-   - Clone this repository to your local machine.
+- Clone this repository to your local machine.
 
-   - Navigate to the directory:
+- Navigate to the directory:
 
-   - Run the script linux.py
+- Run the script linux.py
 
 ### Windows
 
-    - Download and run the windows.exe file
+- Download and run the windows.exe file
 
 ### iOS / iPadOS
 
-    - Download the ios.py script and run it in Pythonista
+- Download the ios.py script and run it in Pythonista
 
 
 ## Troubleshooting
